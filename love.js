@@ -3,7 +3,7 @@
 // GIANT 3D PARTICLE HEART
 // ============================================================
 
-import * as THREE from "./node_modules/three/build/three.module.js";
+import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js";
 const scene = new THREE.Scene();
 
 scene.background = new THREE.Color(0x000000);
