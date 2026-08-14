@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    >
+
+    <title>For My Cayang ❤️</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        canvas {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#message {
+    z-index: 20;
+}
+
+#start {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 30;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(255, 0, 130, 0.16),
+            rgba(0, 0, 0, 0.96) 65%
+        );
+
+    transition:
+        opacity 1s ease,
+        visibility 1s ease;
+}
+
+#start.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+/* ================================
+   LOVE GIFT CARD
+================================ */
+
+.gift-card {
+    width: min(330px, 82vw);
+
+    padding: 42px 28px 36px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255, 91, 177, 0.45);
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 20, 140, 0.12),
+            rgba(20, 0, 15, 0.82)
+        );
+
+    box-shadow:
+        0 0 35px rgba(255, 0, 140, 0.12),
+        inset 0 0 35px rgba(255, 0, 140, 0.04);
+
+    backdrop-filter: blur(16px);
+
+    animation:
+        cardFloat 4s ease-in-out infinite;
+}
+
+
+/* top star */
+
+.gift-star {
+    color: #ff7fc4;
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+
+    text-shadow:
+        0 0 12px #ff2295,
+        0 0 30px #ff2295;
+}
+
+
+/* title */
+
+.gift-title {
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.45em;
+
+    margin-left: 0.45em;
+
+    text-shadow:
+        0 0 15px rgba(255, 255, 255, .35);
+}
+
+
+/* subtitle */
+
+.gift-text {
+    margin-top: 20px;
+
+    color: rgba(255,255,255,.68);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    letter-spacing: .03em;
+}
+
+
+/* open button */
+
+#openButton {
+
+    margin-top: 30px;
+
+    border: none;
+
+    outline: none;
+
+    padding: 14px 30px;
+
+    border-radius: 999px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff168d,
+            #ff4db0
+        );
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: .12em;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 0 18px rgba(255, 20, 140, .45),
+        0 0 45px rgba(255, 20, 140, .18);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+#openButton:hover {
+
+    transform:
+        translateY(-3px)
+        scale(1.04);
+
+    box-shadow:
+        0 0 25px rgba(255, 20, 140, .65),
+        0 0 60px rgba(255, 20, 140, .3);
+}
+
+#openButton:active {
+
+    transform:
+        scale(.95);
+}
+
+
+/* floating animation */
+
+@keyframes cardFloat {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+
+}
+
+        /* MESSAGE */
+
+        #message {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+
+            transform:
+                translate(-50%, -50%)
+                scale(0.8);
+
+            text-align: center;
+
+            color: white;
+
+            opacity: 0;
+
+            transition:
+                opacity 1s ease,
+                transform 1s ease;
+
+            pointer-events: none;
+
+            z-index: 10;
+
+            text-shadow:
+                0 0 10px rgba(255, 30, 150, 0.9),
+                0 0 30px rgba(255, 30, 150, 0.7),
+                0 0 70px rgba(255, 30, 150, 0.4);
+        }
+
+        #message.show {
+            opacity: 1;
+
+            transform:
+                translate(-50%, -50%)
+                scale(1);
+        }
+
+        #message .small {
+            font-size: 11px;
+
+            letter-spacing: 0.4em;
+
+            opacity: 0.8;
+
+            margin-bottom: 12px;
+        }
+
+        #message .main {
+            font-size: clamp(32px, 9vw, 72px);
+
+            line-height: 0.95;
+
+            font-weight: 900;
+
+            white-space: nowrap;
+        }
+
+        #message .name {
+            margin-top: 12px;
+
+            color: #ff71bd;
+
+            font-size: clamp(23px, 6vw, 48px);
+
+            font-weight: 800;
+        }
+
+        /* START BUTTON */
+
+        #start {
+            position: fixed;
+
+            left: 50%;
+            bottom: 28px;
+
+            transform: translateX(-50%);
+
+            z-index: 11;
+
+            color: rgba(255,255,255,0.9);
+
+            background: rgba(20,0,14,0.65);
+
+            border:
+                1px solid
+                rgba(255,90,175,0.5);
+
+            border-radius: 999px;
+
+            padding: 11px 18px;
+
+            font-size: 11px;
+
+            letter-spacing: 0.13em;
+
+            backdrop-filter: blur(8px);
+
+            transition: opacity 0.7s ease;
+        }
+
+        #start.hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="message">
+
+        <div class="small">
+            A LITTLE SOMETHING FOR YOU
+        </div>
+
+        <div
+            class="main"
+            id="mainText"
+        >
+            I LOVE YOU
+        </div>
+
+        <div
+            class="name"
+            id="nameText"
+        >
+            CAYANG ❤️
+        </div>
+
+    </div>
+
+    <div id="start">
+    <div class="gift-card">
+        <div class="gift-star">✦</div>
+
+        <div class="gift-title">
+            FOR YOU
+        </div>
+
+        <div class="gift-text">
+            I made something<br>
+            just for you.
+        </div>
+
+        <button id="openButton">
+            OPEN ❤️
+        </button>
+    </div>
+</div>
+
+
+    <!-- THREE.JS -->
+
+    <script type="module" src="./love.js"></script>
+
+</body>
+</html>
